@@ -21,7 +21,7 @@ var routes = Routes{
 	Route{
 		"FileShow",
 		"GET",
-		"/{fileId}",
+		"/{id}",
 		FileShow,
 	},
 	Route{
