@@ -45,6 +45,7 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	Buf.Reset()
 
 	fileData := File{
+		ID:         generateID(6),
 		Name:       header.Filename,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),
