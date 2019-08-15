@@ -23,7 +23,7 @@ func FileShow(w http.ResponseWriter, r *http.Request) {
 	f := DBGetFile(urlVars["id"])
 	w.Header().Set("Content-Type", f.MediaType+"; charset=utf-8")
 	w.Header().Set("Content-Disposition", "attachment; filename="+f.Name)
-	http.ServeFile(w, r, "uploads/"+f.Name)
+	http.ServeFile(w, r, "uploads/"+f.ID)
 }
 
 // FileCreate implements the POST request for uploading a file.
@@ -36,7 +36,9 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 	io.Copy(&Buf, file)
-	err = ioutil.WriteFile("uploads/"+header.Filename, Buf.Bytes(), 0644)
+
+	id := generateID(6)
+	err = ioutil.WriteFile("uploads/"+id, Buf.Bytes(), 0644)
 	if err != nil {
 		http.Error(w, "Unable to save file", http.StatusInternalServerError)
 		return
@@ -47,7 +49,7 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	Buf.Reset()
 
 	fileData := File{
-		ID:         generateID(6),
+		ID:         id,
 		Name:       header.Filename,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),

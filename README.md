@@ -1,4 +1,4 @@
-# Goupfile core [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/core)](https://goreportcard.com/report/github.com/goupfile/core)
+# Goupfile core [![Build Status](https://travis-ci.org/goupfile/core.svg?branch=master)](https://travis-ci.org/goupfile/core) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/core)](https://goreportcard.com/report/github.com/goupfile/core)
 
 The main server application for Goupfile. It handles file upload, download, and
 storage.
