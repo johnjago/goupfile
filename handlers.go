@@ -9,12 +9,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/goupfile/core/templates"
 	"github.com/gorilla/mux"
 )
 
 // Index is the default response for a GET request without an ID.
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome to Goupfile! Send an HTTP POST request with a multipart form body to upload a file. The key should be named 'file'.")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintln(w, templates.Index)
 }
 
 // FileShow implements the GET request for downloading a file given an ID.
