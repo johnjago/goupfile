@@ -1,0 +1,11 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: goupfile
+    networking.gke.io/managed-certificates: goupfile-cert
+spec:
+  backend:
+    serviceName: goupfile-service
+    servicePort: 80

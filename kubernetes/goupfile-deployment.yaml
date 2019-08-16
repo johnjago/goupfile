@@ -18,7 +18,7 @@ spec:
         io.kompose.service: goupfile
     spec:
       containers:
-      - image: goupfile
+      - image: gcr.io/goupfile/goupfile:latest
         name: goupfile
         ports:
         - containerPort: 8080
