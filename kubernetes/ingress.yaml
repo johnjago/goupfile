@@ -3,9 +3,22 @@ kind: Ingress
 metadata:
   name: ingress
   annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "nginx"
     kubernetes.io/ingress.global-static-ip-name: goupfile
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 5000m
     networking.gke.io/managed-certificates: goupfile-cert
 spec:
-  backend:
-    serviceName: goupfile
-    servicePort: 80
+  tls:
+    - hosts:
+      - goupfile.com
+      secretName: goupfile
+  rules:
+  - host: goupfile.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: goupfile
+          servicePort: 80
