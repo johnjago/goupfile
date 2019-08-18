@@ -7,5 +7,5 @@ metadata:
     networking.gke.io/managed-certificates: goupfile-cert
 spec:
   backend:
-    serviceName: goupfile-service
+    serviceName: goupfile
     servicePort: 80
