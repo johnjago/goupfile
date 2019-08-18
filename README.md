@@ -5,7 +5,7 @@ Goupfile is secure and anonymous file upload from the command line.
 This is the main server application. It handles file upload, download, and
 storage.
 
-# Status
+## Status
 
 Goupfile is currently in alpha, which means that anything can change, and files
 could disappear without warning.
