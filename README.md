@@ -1,13 +1,16 @@
-# Goupfile core [![Build Status](https://travis-ci.org/goupfile/core.svg?branch=master)](https://travis-ci.org/goupfile/core) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/core)](https://goreportcard.com/report/github.com/goupfile/core)
+# Goupfile [![Build Status](https://travis-ci.org/goupfile/core.svg?branch=master)](https://travis-ci.org/goupfile/core) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/core)](https://goreportcard.com/report/github.com/goupfile/core)
 
 Goupfile is secure and anonymous file upload from the command line.
 
 This is the main server application. It handles file upload, download, and
 storage.
 
-## Status
+# Status
 
-Alpha version will be live here soon: http://goupfile.com
+Goupfile is currently in alpha, which means that anything can change, and files
+could disappear without warning.
+
+Nevertheless, you can try it out: https://goupfile.com
 
 ## Developing
 

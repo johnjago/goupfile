@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -60,8 +59,7 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)
-	if err := json.NewEncoder(w).Encode(f); err != nil {
-		http.Error(w, "Unable to get file JSON from struct", http.StatusInternalServerError)
-		return
-	}
+
+	// TODO: Check .env for prod/local
+	fmt.Fprintf(w, "\n\thttps://goupfile.com/%s\n\n", f.ID)
 }

@@ -18,11 +18,10 @@ const Index string = `<!DOCTYPE html>
 </head>
 <body>
 	<h1>Goupfile <small>alpha</small></h1>
-	<h2>What is it?</h2>
-	<p>Goupfile is secure and anonymous file upload from the command line. It allows you to quickly share files and get a links for them without leaving your terminal.</p>
+	<p>Goupfile is secure and anonymous file upload from the command line. It allows you to share files and get a links for them without leaving your terminal.</p>
 	<h2>How does it work?</h2>
-	<p>As of now, Goupfile will be a service that you interact with through the goup CLI tool.</p>
-	<p>For example, you might do this:</p>
+	<p>You can use Goupfile through the <a href="https://github.com/goupfile/goup">goup CLI tool</a>.</p>
+	<p>For example:</p>
 	<pre>
 $ goup file.txt
 Uploading file...
@@ -31,7 +30,14 @@ Uploading file...
 
 $ goup download aw9kzm
 </pre>
-	<p>However, while the CLI tool is being developed, you can send an HTTP POST request with a multipart form body to upload a file. The key should be named 'file'.</p>
+	<p>The goup CLI tool is currently under development. You can try out Goupfile by sending an HTTP POST request with a multipart form body to upload a file. The key should be named 'file'.</p>
+	<pre>
+curl -F "file=@/home/user/file.txt" https://goupfile.com
+</pre>
+	<p>To download a file:</p>
+<pre>
+curl https://goupfile.com/OVn1C1
+</pre>
 	<hr>
 	<a href="https://github.com/goupfile">GitHub</a>
 </body>
