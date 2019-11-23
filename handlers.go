@@ -65,5 +65,5 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	// TODO: Check .env for prod/local
-	fmt.Fprintln(w, "https://goupfile.com/%s", f.ID)
+	fmt.Fprintf(w, "https://goupfile.com/%s\n", f.ID)
 }
