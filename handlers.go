@@ -5,11 +5,12 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"time"
 
-	"github.com/goupfile/core/templates"
 	"github.com/gorilla/mux"
+	"github.com/goupfile/core/templates"
 )
 
 // Index is the default response for a GET request without an ID.
@@ -39,9 +40,12 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	io.Copy(&Buf, file)
 
 	id := generateID(6)
+	// TODO: Make uploads dir if it doesn't exist
 	err = ioutil.WriteFile("uploads/"+id, Buf.Bytes(), 0644)
 	if err != nil {
-		http.Error(w, "Unable to save file", http.StatusInternalServerError)
+		errMsg := "Unable to save file."
+		log.Println(errMsg, err)
+		http.Error(w, errMsg, http.StatusInternalServerError)
 		return
 	}
 
@@ -61,5 +65,5 @@ func FileCreate(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 
 	// TODO: Check .env for prod/local
-	fmt.Fprintf(w, "\n\thttps://goupfile.com/%s\n\n", f.ID)
+	fmt.Fprintln(w, "https://goupfile.com/%s", f.ID)
 }
