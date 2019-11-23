@@ -10,5 +10,5 @@
 - POST endpoint for uploading a file
 - Basic documentation on the index page
 
-[Unreleased]: https://github.com/goupfile/goupfile/compare/0.1.0...HEAD
-[0.1.0]: https://github.com/goupfile/goupfile/releases/tag/0.1.0
+[Unreleased]: https://github.com/goupfile/core/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/goupfile/core/releases/tag/0.1.0
