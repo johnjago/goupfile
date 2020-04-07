@@ -1,9 +1,7 @@
-# Goupfile [![Build Status](https://travis-ci.org/goupfile/core.svg?branch=master)](https://travis-ci.org/goupfile/core) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/core)](https://goreportcard.com/report/github.com/goupfile/core)
+# Goupfile [![Build Status](https://travis-ci.org/goupfile/server.svg?branch=master)](https://travis-ci.org/goupfile/server) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/server)](https://goreportcard.com/report/github.com/goupfile/server)
 
-Goupfile is secure and anonymous file upload from the command line.
-
-This is the main server application. It handles file upload, download, and
-storage.
+Goupfile is a service that allows you to easily upload and share files without
+leaving your terminal.
 
 ## Status
 
@@ -18,8 +16,8 @@ Nevertheless, you can try it out: https://goupfile.com
 server locally.
 
 ```
-go get github.com/goupfile/core
-$GOPATH/bin/core
+go get github.com/goupfile/server
+$GOPATH/bin/server
 ```
 
 To upload a file, send a multipart/form-data `POST` request to `127.0.0.1:8080`.
@@ -33,8 +31,8 @@ You will need [Docker Engine](https://docs.docker.com/install/) and
 [Docker Compose](https://docs.docker.com/compose/).
 
 ```
-git@github.com:goupfile/core.git
-cd core
+git@github.com:goupfile/server.git
+cd server
 docker-compose up
 ```
 
