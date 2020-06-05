@@ -10,6 +10,16 @@ could disappear without warning.
 
 Nevertheless, you can try it out: https://goupfile.com
 
+## Features
+
+What makes this file upload site different?
+
+- Share multiple files under one URL
+- URLs are short, memorable, and don't have ambiguous characters
+- Web UI is free of bloat
+- There's a [CLI tool](https://github.com/goupfile/goup)
+  (under development) that makes it easy to upload files from your terminal
+
 ## Developing
 
 `go get` will fetch, build, and install the package. You can then run the
@@ -38,4 +48,4 @@ docker-compose up
 
 ## License
 
-Unlicense
+MIT
