@@ -1,14 +1,9 @@
 # Changelog
 
-## [Unreleased]
-### Added
--
+## 0.2.0 (2021-06-xx)
 
-## [0.1.0] (2019-08-18)
-### Added
-- GET endpoint for downloading a file
-- POST endpoint for uploading a file
-- Basic documentation on the index page
+## 0.1.0 (2019-08-18)
 
-[Unreleased]: https://github.com/goupfile/core/compare/0.1.0...HEAD
-[0.1.0]: https://github.com/goupfile/core/releases/tag/0.1.0
+- feat: GET endpoint for downloading a file
+- feat: endpoint for uploading a file
+- docs: documentation on the index page
