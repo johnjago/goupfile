@@ -1,0 +1,12 @@
+Redo file structs
+Save files to fs
+New upload endpoint: handle requests from web with redirect
+Remove dependency on github.com/gorilla/mux
+Remove old routes
+Template for viewing uploaded file list
+Switch from MariaDB to SQLite
+QR code for the uploaded file page
+Update Dockerfile
+Reuse logger in new handlers
+Write tests
+Update deployment

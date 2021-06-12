@@ -1,14 +1,15 @@
 # Changelog
 
-## [Unreleased]
-### Added
--
+## 0.2.0 (2021-06-13)
 
-## [0.1.0] (2019-08-18)
-### Added
-- GET endpoint for downloading a file
-- POST endpoint for uploading a file
-- Basic documentation on the index page
+### New features
+- There's now a web UI for uploading files! You can try it at https://goupfile.com
 
-[Unreleased]: https://github.com/goupfile/core/compare/0.1.0...HEAD
-[0.1.0]: https://github.com/goupfile/core/releases/tag/0.1.0
+### Improvements
+- Remove a lot of unnecessary code and dependencies
+
+## 0.1.0 (2019-08-18)
+
+### New features
+- This is the initial release which provides HTTP API endpoints for uploading
+  a file and downloading a file by ID
