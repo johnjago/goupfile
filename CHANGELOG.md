@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (2021-06-13)
+## 0.2.0 (2021-06-xx)
 
 ### New features
 - There's now a web UI for uploading files! You can try it at https://goupfile.com
