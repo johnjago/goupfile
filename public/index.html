@@ -8,12 +8,17 @@
 	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
 </head>
 <body>
-	<div class="mx-auto w-96 mt-10">
-		<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight mb-10">Goupfile</h1>
-		<form method="post" action="/api/v1/upload" enctype="multipart/form-data">
+	<!-- TODO: Create custom tailwind width for 32rem or similar -->
+	<div class="mx-auto mt-10 px-2" style="max-width: 32rem;">
+		<header>
+			<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Goupfile</h1>
+			<p class="text-gray-500 mt-2 mb-10">Upload any file and get a short link to it, and a QR code too!</p>
+		</header>
+		<form method="post" action="/upload" enctype="multipart/form-data" class="grid grid-flow-col items-center">
 			<input type="file" name="file">
-			<button type="submit" class="mt-10 bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-2 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">Upload</button>
+			<button type="submit" class="bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-2 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">Upload</button>
 		</form>
+		<footer class="mt-10 text-gray-500">an <a href="https://undo.studio" class="border-b-4 border-gray-300 font-bold text-gray-900">undo.studio</a> project</footer>
 	</div>
 </body>
 </html>
