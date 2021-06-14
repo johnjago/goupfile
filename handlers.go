@@ -43,6 +43,7 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 	fileData := File{
 		ID:         id,
 		Name:       header.Filename,
+		Size:       header.Size,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),
 	}

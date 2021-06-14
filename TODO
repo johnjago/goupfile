@@ -1,5 +1,4 @@
 Add better logging
-Fix file size 0 in JSON response
 Switch from MariaDB to SQLite
 Save files with extensions
 New upload endpoint: handle requests from web with redirect
@@ -11,3 +10,4 @@ Write tests
 Update deployment
 Multiple file support
 Style the browse... button
+Prevent upload if no file selected
