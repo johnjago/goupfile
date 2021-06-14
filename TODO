@@ -1,13 +1,13 @@
-Add better logging
 Switch from MariaDB to SQLite
-Save files with extensions
-New upload endpoint: handle requests from web with redirect
+Save files with extensions?
+Style the browse... button
+Update Dockerfile
+Tailwind CSS config
+Update deployment
+Handle requests from web with redirect in upload endpoint
 Template for viewing uploaded file list
 QR code for the uploaded file page
-Update Dockerfile
-Reuse logger in new handlers
 Write tests
-Update deployment
 Multiple file support
-Style the browse... button
 Prevent upload if no file selected
+SEO considerations

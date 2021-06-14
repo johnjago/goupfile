@@ -12,7 +12,7 @@ const (
 
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(staticDir)))
-	http.HandleFunc("/upload", handleUpload)
+	http.HandleFunc("/upload", Logger(handleUpload, "handleUpload"))
 
 	log.Printf("Goupfile starting on localhost%s\n", port)
 	log.Fatal(http.ListenAndServe(port, nil))
