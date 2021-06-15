@@ -8,6 +8,7 @@ type File struct {
 	Size       int64     `json:"size"`
 	MediaType  string    `json:"media_type"`
 	UploadDate time.Time `json:"upload_date"`
+	URL        string    `json:"url"`
 }
 
 type Files []File

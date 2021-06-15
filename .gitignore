@@ -12,4 +12,6 @@
 *.out
 
 # Goupfile
+server
 uploads
+sqlite_db

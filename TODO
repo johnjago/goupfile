@@ -1,13 +1,17 @@
-Switch from MariaDB to SQLite
 Save files with extensions?
 Style the browse... button
 Update Dockerfile
 Tailwind CSS config
-Update deployment
+SEO considerations
+Move to GitHub Actions
+Automate deployment
 Handle requests from web with redirect in upload endpoint
 Template for viewing uploaded file list
 QR code for the uploaded file page
 Write tests
 Multiple file support
 Prevent upload if no file selected
-SEO considerations
+HandleFunc vs HandlerFunc?
+Have logger print out name of function itself
+Swith from URL params to path params (maybe use httprouter)
+Write notes about database considerations
