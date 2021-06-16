@@ -25,11 +25,13 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 	io.Copy(&Buf, file)
 
 	if _, err := os.Stat("uploads"); os.IsNotExist(err) {
-		err := os.Mkdir("uploads", os.ModePerm)
-		message := "Could not create uploads directory"
-		log.Println(message, err)
-		http.Error(w, message, http.StatusInternalServerError)
-		return
+		log.Println(err)
+		log.Println("Making a new uploads directory")
+		if err := os.Mkdir("uploads", os.ModePerm); err != nil {
+			message := "Could not create uploads directory"
+			log.Println(message, err)
+			http.Error(w, message, http.StatusInternalServerError)
+		}
 	}
 
 	id := generateID(6)
