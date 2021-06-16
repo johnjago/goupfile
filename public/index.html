@@ -6,16 +6,38 @@
 	<title>Goupfile</title>
 	<link rel="stylesheet" href="tailwind.css">
 	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+	<script defer src="file.js"></script>
+	<style>
+		.fileInput {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+		.fileInput + label {
+			cursor: pointer;
+		}
+		.fileInput:focus + label {
+			outline: 2px solid #000;
+			outline: -webkit-focus-ring-color auto 5px;
+		}
+		.fileInput + label * {
+			pointer-events: none;
+		}
+	</style>
 </head>
 <body>
 	<!-- TODO: Create custom tailwind width for 32rem or similar -->
 	<div class="mx-auto mt-10 px-2" style="max-width: 32rem;">
 		<header>
 			<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Goupfile</h1>
-			<p class="text-gray-500 mt-2 mb-10">Upload any file and get a short link to it, and a QR code too!</p>
+			<p class="text-gray-500 mt-2 mb-10">Upload files and get a short link to them, and a QR code too!</p>
 		</header>
-		<form method="post" action="/upload" enctype="multipart/form-data" class="grid grid-flow-col items-center">
-			<input type="file" name="file">
+		<form method="post" action="/upload" enctype="multipart/form-data" class="grid grid-flow-col items-center justify-between">
+			<input type="file" name="file" id="file" class="fileInput" data-multiple-caption="{count} files selected" multiple>
+			<label for="file" class="bg-blue-100 hover:bg-blue-200 text-gray-800 text-lg leading-6 font-semibold py-2 px-6 border border-transparent rounded-xl transition-colors duration-200">Choose a file</label>
 			<button type="submit" class="bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-2 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">Upload</button>
 		</form>
 		<footer class="mt-10 text-gray-500">an <a href="https://undo.studio" class="border-b-4 border-gray-300 font-bold text-gray-900">undo.studio</a> project</footer>
