@@ -15,6 +15,14 @@ What makes this one different?
 - Easy to deploy: just download a single binary and run
 - Lightweight: runs on any machine in the cloud
 
+## HTTP API
+
+```
+GET    /                   Show the home page and upload/download from there
+POST   /upload             Upload a file (use multipart/form-data)
+GET    /download?id={id}   Download a file
+```
+
 ## Developing
 
 `go get` will fetch, build, and install the package. You can then run the
@@ -25,20 +33,19 @@ go get github.com/goupfile/server
 $GOPATH/bin/server
 ```
 
-To upload a file, send a multipart/form-data `POST` request to `127.0.0.1:8080`.
-The form should contain a key named "file".
+### Docker
 
-To download a file, send a `GET` request to `127.0.0.1:8080/[filename]`
-
-### With Docker
+Using Docker, you can build and run Goupfile without having Go installed and
+without gcc (since `mattn/go-sqlite3` is a cgo package and relies on gcc).
 
 You will need [Docker Engine](https://docs.docker.com/install/) and
 [Docker Compose](https://docs.docker.com/compose/).
 
 ```
-git@github.com:goupfile/server.git
+git clone git@github.com:goupfile/server.git
 cd server
-docker-compose up
+docker build -t goupfile
+docker container run -p 8090:8090 goupfile
 ```
 
 ## License
