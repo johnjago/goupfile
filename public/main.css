@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fileInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.fileInput + label {
+	cursor: pointer;
+}
+.fileInput:focus + label {
+	outline: 2px solid #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.fileInput + label * {
+	pointer-events: none;
+}

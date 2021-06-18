@@ -5,33 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Upload and share files with memorable, easy-to-type links and QR codes. Multiple files? No problem! Share many files under one link.">
 	<title>Goupfile: Simple, fun file share with QR codes</title>
-	<link rel="stylesheet" href="tailwind.css">
+	<link rel="stylesheet" href="main.out.css">
 	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
 	<script defer src="file.js"></script>
-	<style>
-		.fileInput {
-			width: 0.1px;
-			height: 0.1px;
-			opacity: 0;
-			overflow: hidden;
-			position: absolute;
-			z-index: -1;
-		}
-		.fileInput + label {
-			cursor: pointer;
-		}
-		.fileInput:focus + label {
-			outline: 2px solid #000;
-			outline: -webkit-focus-ring-color auto 5px;
-		}
-		.fileInput + label * {
-			pointer-events: none;
-		}
-	</style>
 </head>
 <body>
-	<!-- TODO: Create custom tailwind width for 32rem or similar -->
-	<div class="mx-auto mt-10 px-2" style="max-width: 32rem;">
+	<div class="mx-auto mt-10 px-2 w-128">
 		<header>
 			<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Goupfile</h1>
 			<p class="text-gray-500 mt-2 mb-10">Upload files and get a short link to them, and a QR code too!</p>

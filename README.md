@@ -48,6 +48,22 @@ docker build -t goupfile
 docker container run -p 8090:8090 goupfile
 ```
 
+### CSS
+
+This project uses [Tailwind CSS](https://tailwindcss.com/).
+
+To build the production CSS, run `./css.sh`
+
+In development, you can add download the full Tailwind CSS file and use it like
+
+```
+<link rel="stylesheet" href="tailwind.css">
+```
+
+to have access to all Tailwind classes.
+
+The workflow for this will be improved soon.
+
 ## License
 
 MIT
