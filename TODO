@@ -1,4 +1,3 @@
-Makefile
 Move to GitHub Actions
 Automate deployment
 Handle requests from web with redirect in upload endpoint
