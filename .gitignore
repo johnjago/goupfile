@@ -16,3 +16,4 @@ server
 uploads
 sqlite_db
 public/*.out.css
+node_modules

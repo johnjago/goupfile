@@ -50,19 +50,23 @@ docker container run -p 8090:8090 goupfile
 
 ### CSS
 
-This project uses [Tailwind CSS](https://tailwindcss.com/).
+This project uses [Tailwind CSS](https://tailwindcss.com/). The following will
+create a CSS file with all Tailwind classes, which is helpful in development
+because you can use any Tailwind CSS utility. The file produced by `css-dev` is
+*over 3 MB*, so don't use it in production!
 
-To build the production CSS, run `./css.sh`
-
-In development, you can add download the full Tailwind CSS file and use it like
-
+```sh
+npm install
+npm run css-dev
 ```
-<link rel="stylesheet" href="tailwind.css">
+
+For a production build,
+
+```sh
+npm run css-prod
 ```
 
-to have access to all Tailwind classes.
-
-The workflow for this will be improved soon.
+This will produce a CSS file with only the classes you used in the HTML.
 
 ## License
 
