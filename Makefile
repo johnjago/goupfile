@@ -3,10 +3,10 @@ all: build run
 ci: build test
 
 build:
-	go build .
+	go build -v ./...
 
 test:
-	go test
+	go test -v ./...
 
 run:
 	./server

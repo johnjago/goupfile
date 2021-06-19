@@ -1,4 +1,4 @@
-# Goupfile [![Build Status](https://travis-ci.org/goupfile/server.svg?branch=master)](https://travis-ci.org/goupfile/server) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/server)](https://goreportcard.com/report/github.com/goupfile/server)
+# Goupfile [![Build status](https://github.com/goupfile/server/actions/workflows/goupfile.yml/badge.svg)](https://github.com/goupfile/server/actions) [![Go Report Card](https://goreportcard.com/badge/github.com/goupfile/server)](https://goreportcard.com/report/github.com/goupfile/server)
 
 Goupfile is a file sharing service.
 
