@@ -38,8 +38,7 @@ $GOPATH/bin/server
 Using Docker, you can build and run Goupfile without having Go installed and
 without gcc (since `mattn/go-sqlite3` is a cgo package and relies on gcc).
 
-You will need [Docker Engine](https://docs.docker.com/install/) and
-[Docker Compose](https://docs.docker.com/compose/).
+If you don't already have it, install [Docker Engine](https://docs.docker.com/install/).
 
 ```
 git clone git@github.com:goupfile/server.git
