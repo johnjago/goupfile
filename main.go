@@ -6,9 +6,10 @@ import (
 )
 
 const (
-	staticDir  = "./public"
+	scheme     = "http"
 	host       = "localhost"
 	port       = ":8090"
+	staticDir  = "./public"
 	driver     = "sqlite3"
 	dataSource = "sqlite_db"
 )

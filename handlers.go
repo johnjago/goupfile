@@ -76,5 +76,5 @@ func handleDownload(w http.ResponseWriter, r *http.Request) {
 }
 
 func makeDownloadLink(r *http.Request, id string) string {
-	return "http://" + r.Host + "/download?id=" + id
+	return scheme + "://" + host + port + "/download?id=" + id
 }

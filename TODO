@@ -8,3 +8,5 @@ HandleFunc vs HandlerFunc?
 Have logger print out name of function itself
 Swith from URL params to path params (maybe use httprouter)
 Write notes about database considerations
+Add frontend build to Makefile
+tailwindcss-cli not found?
