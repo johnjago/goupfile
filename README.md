@@ -23,6 +23,21 @@ POST   /upload             Upload a file (use multipart/form-data)
 GET    /download?id={id}   Download a file
 ```
 
+## Configuration
+
+In [main.go](main.go), there is a block where you can configure Goupfile. For example, you can change the directory where uploaded files are stored.
+
+```go
+const (
+	scheme     = "http"
+	host       = "localhost"
+	port       = ":8090"
+	staticDir  = "./public"
+	driver     = "sqlite3"
+	dataSource = "sqlite_db"
+)
+```
+
 ## Developing
 
 `go get` will fetch, build, and install the package. You can then run the
@@ -43,7 +58,8 @@ If you don't already have it, install [Docker Engine](https://docs.docker.com/in
 ```
 git clone git@github.com:goupfile/server.git
 cd server
-docker build -t goupfile
+npm install && npm run css-prod
+docker build . -t goupfile
 docker container run -p 8090:8090 goupfile
 ```
 

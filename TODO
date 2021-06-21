@@ -8,3 +8,4 @@ HandleFunc vs HandlerFunc?
 Have logger print out name of function itself
 Swith from URL params to path params (maybe use httprouter)
 Write notes about database considerations
+Add npm to Docker container for Tailwind CSS build
