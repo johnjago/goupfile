@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "css-dev": "tailwindcss-cli build ./public/main.css -o ./public/main.out.css",
-    "css-prod": "NODE_ENV=production tailwindcss-cli build ./public/main.css -o ./public/main.out.css"
+    "css-dev": "tailwindcss build -i ./public/main.css -o ./public/main.out.css",
+    "css-prod": "NODE_ENV=production tailwindcss build -i ./public/main.css -o ./public/main.out.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
