@@ -11,7 +11,7 @@ What makes this one different?
 - QR codes so that you can upload files on one device and easily access them on another
 - Upload from any browser at [goupfile.com](https://goupfile.com)
 - There's a [CLI tool](https://github.com/goupfile/up) for uploading files from the terminal
-- No dependencies: it uses a SQLite database and saves files to the local filesystem
+- No dependencies: it uses a [SQLite database](#database-notes) and saves files to the local filesystem
 - Easy to deploy: just download a single binary and run
 - Lightweight: runs on any machine in the cloud
 
@@ -82,6 +82,10 @@ npm run css-prod
 ```
 
 This will produce a CSS file with only the classes you used in the HTML.
+
+## Database notes
+
+Goupfile currently uses SQLite as its database. SQLite has an overview of [use cases where it works well](https://www.sqlite.org/whentouse.html), and right now it's a good choice for Goupfile. However, with many concurrent writes or large numbers of files that don't fit on a single VM's disk, there may be issues. In that case, it's almost trivial to swap out SQLite for PostgreSQL or MariaDB. Just change the `driver` and `dataSource` in [main.go](main.go).
 
 ## License
 
