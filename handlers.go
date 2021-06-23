@@ -51,36 +51,27 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 		Size:       header.Size,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),
-		URL:        downloadURL(r, id),
+		URL:        createURL(r, id, "d"),
 	}
 	log.Println("Uploaded file:", fileData)
 	f := saveFile(fileData)
 
-	http.Redirect(w, r, viewURL(r, f.ID), http.StatusSeeOther)
+	http.Redirect(w, r, createURL(r, f.ID, "v"), http.StatusSeeOther)
 }
 
 func handleDownload(w http.ResponseWriter, r *http.Request) {
-	query := r.URL.Query()
-	id, present := query["id"]
-	if !present || len(id) == 0 {
-		log.Println("File ID not present")
-	}
-	f := getFile(id[0])
-	w.Header().Set("Content-Type", f.MediaType+"; charset=utf-8")
-	w.Header().Set("Content-Disposition", "attachment; filename="+f.Name)
-	http.ServeFile(w, r, "uploads/"+f.ID)
+	file := getFile(r.URL.Path[len("/d/"):])
+	w.Header().Set("Content-Type", file.MediaType+"; charset=utf-8")
+	w.Header().Set("Content-Disposition", "attachment; filename="+file.Name)
+	http.ServeFile(w, r, "uploads/"+file.ID)
 }
 
 func handleView(w http.ResponseWriter, r *http.Request) {
-	file := getFile(r.URL.Path[len("/f/"):])
+	file := getFile(r.URL.Path[len("/v/"):])
 	t, _ := template.ParseFiles("templates/view.html")
 	t.Execute(w, file)
 }
 
-func viewURL(r *http.Request, id string) string {
-	return scheme + "://" + host + port + "/f/" + id
-}
-
-func downloadURL(r *http.Request, id string) string {
-	return scheme + "://" + host + port + "/download?id=" + id
+func createURL(r *http.Request, id, action string) string {
+	return scheme + "://" + host + port + "/" + action + "/" + id
 }

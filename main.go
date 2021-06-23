@@ -30,8 +30,8 @@ create table Files (
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(staticDir)))
 	http.HandleFunc("/upload", Logger(handleUpload, "handleUpload"))
-	http.HandleFunc("/download", Logger(handleDownload, "handleDownload"))
-	http.HandleFunc("/f/", Logger(handleView, "handleView"))
+	http.HandleFunc("/d/", Logger(handleDownload, "handleDownload"))
+	http.HandleFunc("/v/", Logger(handleView, "handleView"))
 
 	initDB(driver, dataSource, schema)
 	log.Printf("Goupfile starting on %s%s\n", host, port)

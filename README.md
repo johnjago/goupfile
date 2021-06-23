@@ -20,13 +20,14 @@ What makes this one different?
 ```
 GET    /                   Show the home page and upload/download from there
 POST   /upload             Upload a file (use multipart/form-data)
-GET    /download?id={id}   Download a file
-GET    /f/{id}             View file download page
+GET    /d/{id}             Download a file
+GET    /v/{id}             View file download page
 ```
 
 ## Configuration
 
-In [main.go](main.go), there is a block where you can configure Goupfile. For example, you can change the directory where uploaded files are stored.
+In [main.go](main.go), there is a block where you can configure Goupfile. For
+example, you can change the directory where uploaded files are stored.
 
 ```go
 const (
@@ -86,7 +87,12 @@ This will produce a CSS file with only the classes you used in the HTML.
 
 ## Database notes
 
-Goupfile currently uses SQLite as its database. SQLite has an overview of [use cases where it works well](https://www.sqlite.org/whentouse.html), and right now it's a good choice for Goupfile. However, with many concurrent writes or large numbers of files that don't fit on a single VM's disk, there may be issues. In that case, it's almost trivial to swap out SQLite for PostgreSQL or MariaDB. Just change the `driver` and `dataSource` in [main.go](main.go).
+Goupfile currently uses SQLite as its database. SQLite has an overview of [use
+cases where it works well](https://www.sqlite.org/whentouse.html), and right now
+it's a good choice for Goupfile. However, with many concurrent writes or large
+numbers of files that don't fit on a single VM's disk, there may be issues. In
+that case, it's almost trivial to swap out SQLite for PostgreSQL or MariaDB.
+Just change the `driver` and `dataSource` in [main.go](main.go).
 
 ## License
 
