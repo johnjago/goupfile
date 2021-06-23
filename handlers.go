@@ -2,12 +2,12 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"text/template"
 	"time"
 )
 
@@ -51,16 +51,12 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 		Size:       header.Size,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),
-		URL:        makeDownloadLink(r, id),
+		URL:        downloadURL(r, id),
 	}
 	log.Println("Uploaded file:", fileData)
-
 	f := saveFile(fileData)
 
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusCreated)
-
-	json.NewEncoder(w).Encode(f)
+	http.Redirect(w, r, viewURL(r, f.ID), http.StatusSeeOther)
 }
 
 func handleDownload(w http.ResponseWriter, r *http.Request) {
@@ -75,6 +71,16 @@ func handleDownload(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "uploads/"+f.ID)
 }
 
-func makeDownloadLink(r *http.Request, id string) string {
+func handleView(w http.ResponseWriter, r *http.Request) {
+	file := getFile(r.URL.Path[len("/f/"):])
+	t, _ := template.ParseFiles("templates/view.html")
+	t.Execute(w, file)
+}
+
+func viewURL(r *http.Request, id string) string {
+	return scheme + "://" + host + port + "/f/" + id
+}
+
+func downloadURL(r *http.Request, id string) string {
 	return scheme + "://" + host + port + "/download?id=" + id
 }

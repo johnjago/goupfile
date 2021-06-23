@@ -1,5 +1,3 @@
-Handle requests from web with redirect in upload endpoint
-Template for viewing uploaded file list
 QR code for the uploaded file page
 Write tests
 Multiple file support
@@ -7,3 +5,7 @@ HandleFunc vs HandlerFunc?
 Have logger print out name of function itself
 Swith from URL params to path params (maybe use httprouter)
 Add npm to Docker container for Tailwind CSS build
+Handle viewing file that doesn't exist
+Delete button on file view page
+"Upload another" button on file view page
+Create REST API endpoints

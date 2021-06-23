@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Upload and share files with memorable, easy-to-type links and QR codes. Multiple files? No problem! Share many files under one link.">
+	<title>{{ .Name }} - Goupfile</title>
+	<link rel="stylesheet" href="../main.out.css">
+	<link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
+</head>
+<body>
+	<div class="mx-auto mt-10 px-2 w-128">
+		<header>
+			<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight"><a href="/">Goupfile</a></h1>
+			<p class="text-gray-500 mt-2 mb-10">Upload files and get a short link to them, and a QR code too!</p>
+		</header>
+		<a href="{{ .URL }}">{{ .Name }} ({{ .Size }} bytes)</a>
+		<footer class="mt-10 text-gray-500">an <a href="https://undo.studio" class="border-b-4 border-gray-300 font-bold text-gray-900">undo.studio</a> project</footer>
+	</div>
+</body>
+</html>

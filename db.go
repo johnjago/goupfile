@@ -25,8 +25,8 @@ func saveFile(f File) File {
 	if err != nil {
 		log.Fatal(err)
 	}
-	insert := "insert into Files (ID, Name, Size, MediaType) values (?, ?, ?, ?)"
-	_, err = db.Exec(insert, f.ID, f.Name, f.Size, f.MediaType)
+	insert := "insert into Files (ID, Name, Size, MediaType, URL) values (?, ?, ?, ?, ?)"
+	_, err = db.Exec(insert, f.ID, f.Name, f.Size, f.MediaType, f.URL)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,11 +40,11 @@ func getFile(id string) File {
 	if err != nil {
 		log.Fatal(err)
 	}
-	rows, err := db.Query("select ID, Name, MediaType from Files where ID = ?", id)
+	rows, err := db.Query("select ID, Name, Size, MediaType, URL from Files where ID = ?", id)
 	f := File{}
 	defer rows.Close()
 	for rows.Next() {
-		if err := rows.Scan(&f.ID, &f.Name, &f.MediaType); err != nil {
+		if err := rows.Scan(&f.ID, &f.Name, &f.Size, &f.MediaType, &f.URL); err != nil {
 			log.Fatal(err)
 		}
 	}

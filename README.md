@@ -21,6 +21,7 @@ What makes this one different?
 GET    /                   Show the home page and upload/download from there
 POST   /upload             Upload a file (use multipart/form-data)
 GET    /download?id={id}   Download a file
+GET    /f/{id}             View file download page
 ```
 
 ## Configuration
