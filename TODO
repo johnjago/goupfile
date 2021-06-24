@@ -2,7 +2,6 @@ QR code for the uploaded file page
 Write tests
 Multiple file support
 Add npm to Docker container for Tailwind CSS build
-Handle viewing file that doesn't exist
 Delete button on file view page
 Create REST API endpoints
 Local dev server auto restart
