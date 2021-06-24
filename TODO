@@ -1,8 +1,6 @@
 QR code for the uploaded file page
 Write tests
 * Multiple file support
-* HandleFunc vs HandlerFunc?
-* Have logger print out name of function itself
 Add npm to Docker container for Tailwind CSS build
 Handle viewing file that doesn't exist
 Delete button on file view page
