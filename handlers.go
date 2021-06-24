@@ -11,7 +11,6 @@ import (
 	"time"
 )
 
-// handleUpload implements the POST request for uploading a file.
 func handleUpload(w http.ResponseWriter, r *http.Request) {
 	var Buf bytes.Buffer
 
