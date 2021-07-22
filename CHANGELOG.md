@@ -4,6 +4,13 @@
 
 ### New features
 - Support for more than one file
+- Button to go back home from the file view page
+- Show a message if a file doesn't exist
+
+### Improvements
+- Better HTTP request logging
+- Remove ambiguous characters from file IDs
+- Make the download links actually look like links
 
 ## 0.2.0 (2021-06-23)
 
