@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 (2021-07-22)
+
+### New features
+- Support for more than one file
+
 ## 0.2.0 (2021-06-23)
 
 ### New features

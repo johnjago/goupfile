@@ -2,9 +2,11 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"io/ioutil"
 	"log"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"text/template"
@@ -12,14 +14,28 @@ import (
 )
 
 func handleUpload(w http.ResponseWriter, r *http.Request) {
-	var Buf bytes.Buffer
-
-	file, header, err := r.FormFile("file")
-	if err != nil {
-		http.Error(w, "Unable to read file", http.StatusBadRequest)
-		return
+	fileGroup := FileGroup{
+		ID: generateID(6),
 	}
-	defer file.Close()
+
+	r.ParseMultipartForm(32 << 20) // 32 MB
+	fileHeaders := r.MultipartForm.File["files"]
+	for _, header := range fileHeaders {
+		file, err := header.Open()
+		if err != nil {
+			http.Error(w, "Unable to read a file", http.StatusBadRequest)
+			return
+		}
+		defer file.Close()
+		f, _ := upload(fileGroup.ID, file, header, w, r)
+		fileGroup.Files = append(fileGroup.Files, f)
+	}
+
+	http.Redirect(w, r, createURL(r, fileGroup.ID, "v"), http.StatusSeeOther)
+}
+
+func upload(fileGroupID string, file multipart.File, header *multipart.FileHeader, w http.ResponseWriter, r *http.Request) (File, error) {
+	var Buf bytes.Buffer
 
 	io.Copy(&Buf, file)
 
@@ -34,18 +50,19 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	id := generateID(6)
-	err = ioutil.WriteFile("uploads/"+id, Buf.Bytes(), os.ModePerm)
+	err := ioutil.WriteFile("uploads/"+id, Buf.Bytes(), os.ModePerm)
 	if err != nil {
 		message := "Unable to save file"
 		log.Println(message, err)
 		http.Error(w, message, http.StatusInternalServerError)
-		return
+		return File{}, errors.New(message)
 	}
 
 	Buf.Reset()
 
 	fileData := File{
 		ID:         id,
+		Group:      fileGroupID,
 		Name:       header.Filename,
 		Size:       header.Size,
 		MediaType:  header.Header.Get("Content-Type"),
@@ -53,9 +70,8 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 		URL:        createURL(r, id, "d"),
 	}
 	log.Println("Uploaded file:", fileData)
-	f := saveFile(fileData)
 
-	http.Redirect(w, r, createURL(r, f.ID, "v"), http.StatusSeeOther)
+	return saveFile(fileData), nil
 }
 
 func handleDownload(w http.ResponseWriter, r *http.Request) {
@@ -66,9 +82,10 @@ func handleDownload(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleView(w http.ResponseWriter, r *http.Request) {
-	file := getFile(r.URL.Path[len("/v/"):])
+	fileGroup := getFileGroup(r.URL.Path[len("/v/"):])
+	log.Println(fileGroup)
 	t, _ := template.ParseFiles("templates/view.html")
-	t.Execute(w, file)
+	t.Execute(w, fileGroup)
 }
 
 func createURL(r *http.Request, id, action string) string {
