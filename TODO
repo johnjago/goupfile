@@ -1,4 +1,3 @@
-QR code for the uploaded file page
 Write tests
 Add npm to Docker container for Tailwind CSS build
 Delete button on file view page
@@ -7,3 +6,4 @@ Local dev server auto restart
 Tailwind variables for common styles
 Adjust mobile UI so it fits the screen
 Increase file size limit on server
+View page title: list file names

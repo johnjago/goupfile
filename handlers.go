@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	b64 "encoding/base64"
 	"errors"
 	"io"
 	"io/ioutil"
@@ -11,6 +12,8 @@ import (
 	"os"
 	"text/template"
 	"time"
+
+	"github.com/skip2/go-qrcode"
 )
 
 func handleUpload(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +34,7 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
 		fileGroup.Files = append(fileGroup.Files, f)
 	}
 
-	http.Redirect(w, r, createURL(r, fileGroup.ID, "v"), http.StatusSeeOther)
+	http.Redirect(w, r, createURL(fileGroup.ID, "v"), http.StatusSeeOther)
 }
 
 func upload(fileGroupID string, file multipart.File, header *multipart.FileHeader, w http.ResponseWriter, r *http.Request) (File, error) {
@@ -67,7 +70,7 @@ func upload(fileGroupID string, file multipart.File, header *multipart.FileHeade
 		Size:       header.Size,
 		MediaType:  header.Header.Get("Content-Type"),
 		UploadDate: time.Now(),
-		URL:        createURL(r, id, "d"),
+		URL:        createURL(id, "d"),
 	}
 	log.Println("Uploaded file:", fileData)
 
@@ -83,11 +86,28 @@ func handleDownload(w http.ResponseWriter, r *http.Request) {
 
 func handleView(w http.ResponseWriter, r *http.Request) {
 	fileGroup := getFileGroup(r.URL.Path[len("/v/"):])
-	log.Println(fileGroup)
-	t, _ := template.ParseFiles("templates/view.html")
+	fileGroup.QR = b64.StdEncoding.EncodeToString(createQR(createURL(fileGroup.ID, "v")))
+	t, err := template.ParseFiles("templates/view.html")
+	if err != nil {
+		log.Println("Unable to parse template file: ", err)
+	}
 	t.Execute(w, fileGroup)
 }
 
-func createURL(r *http.Request, id, action string) string {
+func createURL(id, action string) string {
 	return scheme + "://" + host + port + "/" + action + "/" + id
+}
+
+func createQR(url string) []byte {
+	var png []byte
+	qr, err := qrcode.New(url, qrcode.Medium)
+	if err != nil {
+		log.Println("Unable to create QR code: ", err)
+	}
+	qr.DisableBorder = true
+	png, err = qr.PNG(128)
+	if err != nil {
+		log.Println("Unable to PNG for QR code: ", err)
+	}
+	return png
 }

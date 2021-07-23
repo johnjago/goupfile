@@ -15,4 +15,5 @@ type File struct {
 type FileGroup struct {
 	ID    string `json:"id"`
 	Files []File `json:"files"`
+	QR    string
 }
