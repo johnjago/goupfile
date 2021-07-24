@@ -4,6 +4,5 @@ Delete button on file view page
 Create REST API endpoints
 Local dev server auto restart
 Tailwind variables for common styles
-Adjust mobile UI so it fits the screen
 Increase file size limit on server
 View page title: list file names
