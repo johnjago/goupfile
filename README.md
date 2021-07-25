@@ -40,6 +40,43 @@ const (
 )
 ```
 
+### Proxying though nginx
+
+It's common to proxy requests through a server like nginx. This allows you to
+simply run Goupfile on something like http://localhost:8090 and have nginx take
+care of the public facing TLS, hostname, and other configuration.
+
+One configuration that's useful to adjust for an application like Goupfile is
+`client_max_body_size` which allows you to specify a limit on how large an
+uploaded file can be.
+
+```
+server {
+	server_name          goupfile.com;
+	listen               *:80;
+	listen               [::]:80;
+
+	return 301 https://goupfile.com$request_uri;
+}
+
+server {
+	listen [::]:443 ssl http2;
+	listen 443 ssl http2;
+
+	ssl_certificate /path/to/cert;
+	ssl_certificate_key /path/to/private/key;
+
+	include /etc/letsencrypt/options-ssl-nginx.conf;
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+	client_max_body_size 10M;
+
+	location / {
+		proxy_pass http://localhost:8090;
+	}
+}
+```
+
 ## Developing
 
 `go get` will fetch, build, and install the package. You can then run the
