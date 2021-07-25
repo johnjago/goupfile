@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{if .ID}}{{.ID}}{{else}}File not found{{end}} - Goupfile</title>
+	<title>{{if .Files}}{{range .Files}}{{.Name}} {{end}}{{else}}File not found{{end}}</title>
 	<link rel="stylesheet" href="../main.out.css">
 	<link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
 </head>
@@ -13,7 +13,7 @@
 			<h1 class="text-3xl font-extrabold text-gray-900 tracking-tight"><a href="/">Goupfile</a></h1>
 			<p class="text-gray-500 mt-2 mb-7">Upload files and get a short link to them, and a QR code too!</p>
 		</header>
-		{{if not .ID}}
+		{{if not .Files}}
 			<p>This file does not exist.</p>
 		{{else}}
 			{{range .Files}}
@@ -23,8 +23,8 @@
 				</svg><a href="{{ .URL }}" class="text-blue-500 text-xl align-middle ml-2">{{.Name}} ({{.Size}} bytes)</a>
 				</div>
 			{{end}}
+			<img src="data:image/png;base64,{{ .QR }}" width="128" height="128" class="mt-8">
 		{{end}}
-		<img src="data:image/png;base64,{{ .QR }}" width="128" height="128" class="mt-8">
 		<div class="mt-12">
 			<a href="/" class="bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-2 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">Upload another</a>
 		</div>
