@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 (2021-07-xx)
+
+### New features
+- QR code on the file view page
+- File names are shown in the page title for easy identification
+
+### Improvements
+- Resize correctly on mobile screens
+
 ## 0.3.0 (2021-07-22)
 
 ### New features

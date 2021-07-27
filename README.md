@@ -131,6 +131,12 @@ numbers of files that don't fit on a single VM's disk, there may be issues. In
 that case, it's almost trivial to swap out SQLite for PostgreSQL or MariaDB.
 Just change the `driver` and `dataSource` in [main.go](main.go).
 
+## Screenshots
+
+![Goupfile home page](docs/home.png)
+
+![Goupfile file view page](docs/view.png)
+
 ## License
 
 MIT
