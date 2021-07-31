@@ -1,4 +1,4 @@
-all: build run
+all: run
 
 ci: build test
 
@@ -9,7 +9,7 @@ test:
 	go test -v ./...
 
 run:
-	./server
+	go run -v ./...
 
 clean:
 	rm -rf uploads/ server sqlite_db

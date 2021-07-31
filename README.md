@@ -79,13 +79,26 @@ server {
 
 ## Developing
 
-`go get` will fetch, build, and install the package. You can then run the
-server locally.
+Clone the repository:
 
 ```
-go get github.com/goupfile/server
-$GOPATH/bin/server
+git clone git@github.com:goupfile/server.git
 ```
+
+Then run the server from the root of the project:
+
+```
+go run -v ./...
+```
+
+or
+
+```
+make run
+```
+
+To automatically build and run the project every time a file changes, you can
+use a tool like [gow](https://github.com/mitranim/gow).
 
 ### Docker
 
