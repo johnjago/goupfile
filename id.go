@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-var chars = []rune("23456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ")
+var chars = []rune("23456789abcdefghkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ")
 
 func generateID(length int) string {
 	rand.Seed(time.Now().UnixNano())

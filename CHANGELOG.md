@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 (2021-07-xx)
+## 0.4.0 (2021-08-xx)
 
 ### New features
 - QR code on the file view page
@@ -8,6 +8,8 @@
 
 ### Improvements
 - Resize correctly on mobile screens
+- Remove lowercase "j" from possible file ID chars because it's too close to an
+  "i" in some fonts
 
 ## 0.3.0 (2021-07-22)
 
