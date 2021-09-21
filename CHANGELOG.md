@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 (2021-08-xx)
+## 0.4.0 (2021-09-21)
 
 ### New features
 - QR code on the file view page
@@ -10,6 +10,12 @@
 - Resize correctly on mobile screens
 - Remove lowercase "j" from possible file ID chars because it's too close to an
   "i" in some fonts
+- The temporary statement to drop the table upon restart has been removed, so
+  now it can be used in production!
+
+### Bug fixes
+- Use external hostname for the download link when hosted on localhost behind
+  a web server
 
 ## 0.3.0 (2021-07-22)
 
