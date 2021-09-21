@@ -31,8 +31,6 @@ example, you can change the directory where uploaded files are stored.
 
 ```go
 const (
-	scheme     = "http"
-	host       = "localhost"
 	port       = ":8090"
 	staticDir  = "./public"
 	driver     = "sqlite3"

@@ -6,19 +6,14 @@ import (
 )
 
 const (
-	scheme     = "http"
-	host       = "localhost"
 	port       = ":8090"
 	staticDir  = "./public"
 	driver     = "sqlite3"
 	dataSource = "sqlite_db"
 )
 
-// todo: remove drop table after schema is finalized
 const schema = `
-drop table if exists files;
-
-create table files (
+create table if not exists files (
 	id varchar(10) not null primary key,
 	group_id varchar(10) not null,
 	name varchar(255) not null,
@@ -39,6 +34,6 @@ func main() {
 		log.Fatal("Failed to initialize database: ", err)
 	}
 
-	log.Printf("Goupfile starting on %s%s\n", host, port)
+	log.Printf("Goupfile starting on localhost%s\n", port)
 	log.Fatal(http.ListenAndServe(port, nil))
 }

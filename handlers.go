@@ -95,7 +95,7 @@ func handleView(w http.ResponseWriter, r *http.Request) {
 }
 
 func createURL(id, action string) string {
-	return scheme + "://" + host + port + "/" + action + "/" + id
+	return "/" + action + "/" + id
 }
 
 func createQR(url string) []byte {
