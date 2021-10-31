@@ -100,7 +100,7 @@ func createURL(id, action string) string {
 
 func createQR(url string) []byte {
 	var png []byte
-	qr, err := qrcode.New(url, qrcode.Medium)
+	qr, err := qrcode.New(publicHost+url, qrcode.Medium)
 	if err != nil {
 		log.Println("Unable to create QR code: ", err)
 	}

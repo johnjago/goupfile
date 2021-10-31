@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 (2021-10-31)
+
+### Bug fixes
+- Provide a way to specify the host URL in the QR code (don't know how I missed
+  this!)
+
 ## 0.4.0 (2021-09-21)
 
 ### New features

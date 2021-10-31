@@ -10,6 +10,12 @@ const (
 	staticDir  = "./public"
 	driver     = "sqlite3"
 	dataSource = "sqlite_db"
+	// This is only for generating the QR code from a URL since when it's
+	// running behind nginx, for example, it doesn't know what the outside
+	// facing hostname is unless we tell it. A real setup might look like:
+	// this program running on localhost:8090, but nginx accepts requests at
+	// https://file.com, in which case the below value would be https://file.com
+	publicHost = "https://goupfile.com"
 )
 
 const schema = `
