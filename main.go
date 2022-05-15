@@ -15,7 +15,7 @@ const (
 	// facing hostname is unless we tell it. A real setup might look like:
 	// this program running on localhost:8090, but nginx accepts requests at
 	// https://file.com, in which case the below value would be https://file.com
-	publicHost = "https://goupfile.com"
+	publicHost = "https://goupfile.johnjago.com"
 )
 
 const schema = `

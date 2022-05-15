@@ -9,7 +9,7 @@ What makes this one different?
 - Share multiple files under one URL
 - URLs are short, memorable, and don't have ambiguous characters
 - QR codes so that you can upload files on one device and easily access them on another
-- Upload from any browser at [goupfile.com](https://goupfile.com)
+- Upload from any browser at [goupfile.johnjago.com](https://goupfile.johnjago.com)
 - There's a [CLI tool](https://github.com/goupfile/up) for uploading files from the terminal
 - No dependencies: it uses a [SQLite database](#database-notes) and saves files to the local filesystem
 - Easy to deploy: just download a single binary and run
@@ -40,7 +40,7 @@ const (
 	// facing hostname is unless we tell it. A real setup might look like:
 	// this program running on localhost:8090, but nginx accepts requests at
 	// https://file.com, in which case the below value would be https://file.com
-	publicHost = "https://goupfile.com"
+	publicHost = "https://goupfile.johnjago.com"
 )
 ```
 
@@ -58,11 +58,11 @@ uploaded file can be.
 
 ```
 server {
-	server_name          goupfile.com;
+	server_name          goupfile.johnjago.com;
 	listen               *:80;
 	listen               [::]:80;
 
-	return 301 https://goupfile.com$request_uri;
+	return 301 https://goupfile.johnjago.com$request_uri;
 }
 
 server {
