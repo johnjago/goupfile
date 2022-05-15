@@ -1,0 +1,12 @@
+[Unit]
+Description=goupfile
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+WorkingDirectory=/home/john/goupfile.johnjago.com
+ExecStart=/home/john/goupfile.johnjago.com/server
+
+[Install]
+WantedBy=multi-user.target
